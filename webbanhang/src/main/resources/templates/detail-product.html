@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>All Green</title>
+    <link
+            rel="shortcut icon"
+            href="http://bizweb.dktcdn.net/100/383/804/themes/848679/assets/favicon.png?1641806330152"
+            type="image/x-icon"
+    />
+<!--    <link rel="stylesheet" href="style01.css"/>-->
+<!--    <link rel="stylesheet" href="gird01.css"/>-->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 flex b-color">
+                <div class="col-4 phone">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+ 1235 2355 98</span>
+                </div>
+                <div class="col-4 email">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>HUYHUNG041000@GMAIL.COM</span>
+                </div>
+                <div class="col-4">
+                    <span>3-5 BUSINESS DAYS DELIVERY & FREE RETURNS</span>
+                </div>
+            </div>
+
+            <div class="col-12 flex fix">
+                <div class="col-5">
+                    <img
+                            style="height: 50px; width: 170px"
+                            src="https://bizweb.dktcdn.net/100/383/804/themes/848679/assets/logo.png?1641806330152"
+                            alt=""
+                    />
+                </div>
+                <div class="col-7 flex">
+                    <div class="col-2">
+                        <li><a th:href="@{/all-green}">Home</a></li>
+                    </div>
+                    <div class="col-2">
+                        <li><a href="#">Contact</a></li>
+                    </div>
+                    <div class="col-2">
+                        <li>
+                            <a th:href="@{/cart}">GIỎ HÀNG<i class="fas fa-shopping-cart"></i></a>
+                        </li>
+                    </div>
+                    <div class="col-2">
+                        <li>
+                            <a th:href="@{/user/log-out}">ĐĂNG XUẤT<i class="fas fa-sign-out-alt"></i></a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container1">
+        <div class="row">
+            <div class="col-12 flex" th:each="product, iStat:${product}" >
+                <div class="col-5">
+                    <img
+                            class="main"
+                            src="/logo/${product.logoPath}" th:src="|/logo/${product.logoPath}|"
+                    />
+                    <img
+                            class="sub-img"
+                            src="/logo/${product.logoPath}" th:src="|/logo/${product.logoPath}|"
+                    />
+                </div>
+                <div class="col-7">
+                    <div class="product-name" th:text="${product.name}"></div>
+                    <div style="margin-bottom: 50px" class="id">SKU: 10005752</div>
+
+                    <div class="bd">
+                        <div class="col-12" style="background-color: #dad4d454">
+                            <span style="padding-left: 10px" class="price">Giá:</span>
+                            <span class="product-price"
+                                  th:text="${#numbers.formatDecimal(product.price,1,'DEFAULT',0,'DEFAULT')}"></span>
+                            <span style="color:#82ae46; font-size:16px">₫</span>
+                        </div>
+                        <div class="col-12"
+                                style="background-color: #dad4d454; border-top: 1px solid rgba(0, 0, 0, 0.12);">
+                  <span style="padding-left: 10px" class="status">Tình trạng:</span>
+                            <span class="pro-status">Còn hàng</span>
+                        </div>
+                    </div>
+                    <div class="ship">
+                        <span class="transport">Vận chuyển: </span>
+                        <span class="delivery-time">
+                  Giao nhanh trong vòng 2-4 tiếng khi đơn hàng được xác nhận.
+                  Các đơn hàng đặt sau 18:00 sẽ được giao trước 12:00 sáng ngày
+                  hôm sau. Liên hệ hỗ trợ: 024 71066866</span>
+                    </div>
+                    <div class="cart"><a style="text-decoration:none; color:white"
+                                         th:href="@{/cart/buy/{id}(id=${product.id})}">Thêm vào giỏ</a></div>
+                </div>
+            </div>
+            <div class="col-12 flex" th:each="product, iStat:${product}">
+                <div class="col-7">
+                    <div
+                            style="background-color: rgb(247, 247, 247, 1)"
+                            class="describe"
+                    >
+                        Mô tả
+                    </div>
+                    <div class="name" th:text="${product.name}"></div>
+                    <div class="detail" th:text="${product.detail}">
+<!--                        <strong>Xúc xích Vealz 3A CP 500G</strong>-->
+                    </div>
+                </div>
+                <div style="margin-left: 25px" class="col-5">
+                    <div style="background-color: rgb(247, 247, 247, 1)" class="info">
+                        Thông tin
+                    </div>
+                    <div class="address">
+                <span style="margin-right: 240px; margin-left: 10px"
+                >Xuất Xứ</span
+                >
+                        <span>Vietnam</span>
+                    </div>
+                    <div class="guard">
+                <span style="margin-right: 180px; margin-left: 10px"
+                >Bảo quản</span
+                >
+                        <span>Bảo quản ở nhiệt độ từ 0 - 4 độ C</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="col-12 flex">
+            <div class="col-4 logo-4">
+                <img
+                        src="https://bizweb.dktcdn.net/100/383/804/themes/848679/assets/logo.png?1641806330152"
+                        alt=""
+                />
+                <div class="address">
+                    <i class="fas fa-map-marker-alt"></i>Tầng 6 toà nhà Ladeco, 111
+                    Đội Cấn, Ba Đình, Hà Nội
+                </div>
+                <div class="address"><i class="fas fa-phone-alt"></i>1900 6750</div>
+                <div class="address">
+                    <i class="fas fa-envelope"></i>green@gmail.com
+                </div>
+            </div>
+            <div class="col-4 menu-4">
+                <div class="title-4">MENU</div>
+
+                <div class="menu"><a href="#">Liên hệ</a></div>
+
+                <div class="menu"><a href="#">Giỏ hàng</a></div>
+
+                <div class="menu"><a href="#">Đăng xuất</a></div>
+            </div>
+            <div class="col-4">
+                <div class="title-4">OPENING TIME</div>
+                <div class="time">Mon - Fri: 8AM - 10PM</div>
+                <div class="time">Sat: 9AM-8PM</div>
+                <div class="time">Suns: 14hPM-18hPM</div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
+<style>
+    * {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(247, 247, 247, 1);
+  margin: 0px;
+  padding: 0px;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+.header .container {
+  /* position: sticky; */
+  position: relative;
+  top: 0;
+  z-index: 2;
+  background-color: white;
+}
+
+.header .container .row .b-color {
+  background-color: #82ae46;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.header .container .row .col-12 .col-4 {
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+
+.header .container .row .col-12 .fas,
+.fab {
+  padding-right: 8px;
+}
+.header .container .row .col-12 .phone {
+  text-align: center;
+}
+.header .container .row .col-12 .email {
+  padding-left: 70px;
+}
+.header .container .row .col-12 .col-5 {
+  text-align: center;
+  padding: 5px 0 5px 0;
+}
+.header .container .row .col-12 .col-7 {
+  list-style: none;
+}
+.header .container .row .col-12 .col-7 li {
+  padding-top: 21px;
+}
+.header .container .row .col-12 .col-7 .fas {
+  padding-left: 5px;
+  color: #666262;
+  font-size: 12px;
+}
+
+.header .container .row .col-12 .col-7 a {
+  text-decoration: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000000;
+  -webkit-transition: all 0.4s ease;
+}
+
+.header .container .row .col-12 .col-7 a:hover {
+  color: #8de710;
+}
+.section {
+  margin-top: 20px;
+}
+.section .container1 .row .col-12 {
+  background-color: white;
+}
+
+.section .container1 .row .col-12 .col-5 .main {
+  display: block;
+  max-width: 100%;
+  max-height: 450px;
+}
+.section .container1 .row .col-12 .col-7 .product-name {
+  margin-top: 40px;
+  font-family: Roboto, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 1.5;
+}
+.section .container1 .row .col-12 .col-7 .id {
+  padding-top: 3px;
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: rgb(153, 153, 153);
+  margin-bottom: 10px;
+}
+
+.section .container1 .row .col-12 .col-5 .sub-img {
+  width: 70px;
+  height: 70px;
+  border: 2px solid #82ae46;
+  border-radius: 10px;
+  margin-left: 180px;
+  margin-bottom:10px;
+}
+.price {
+  padding-right: 85px;
+}
+.status {
+  padding-right: 40px;
+}
+.price,
+.status {
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(102, 102, 102);
+  line-height: 2;
+}
+
+.product-price,
+.pro-status {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(102, 102, 102);
+  line-height: 2;
+}
+.ship {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  margin: 30px 0;
+}
+.transport {
+  font-family: Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgb(102, 102, 102);
+  line-height: 2;
+  padding-right: 5px;
+}
+.delivery-time,
+.choose {
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgb(102, 102, 102);
+  line-height: 2;
+}
+.item {
+  background: rgb(254, 244, 243);
+  color: rgb(209, 10, 0);
+  border: 1px solid rgb(209, 10, 0);
+  border-radius: 2px;
+  font-weight: normal;
+  padding: 8px;
+}
+.cart {
+  padding: 10px 0;
+  background-color: #82ae46;
+  border: 2px solid #82ae46;
+  border-radius: 2px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 80px;
+  text-transform: uppercase;
+  width: 200px;
+  text-align: center;
+}
+.name{
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: 12px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+}
+.detail{
+    font-size: 14px;
+    padding-left: 15px;
+    padding-bottom: 30px;
+    color: #333333;
+}
+.address,.guard{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    padding: 20px 15px;
+    color: #333333;
+    font-size: 13px;
+}
+
+.describe,
+.info {
+  background-color: rgb(247, 247, 247, 1);
+  padding: 10px 0 10px 15px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.footer {
+  margin-top: 110px;
+  background-color: #f4f4f4;
+}
+.footer .container .col-12 {
+  padding: 70px 0 80px 70px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  color: #414141;
+}
+.footer .container .col-12 .logo-4 .address {
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .logo-4 img {
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .menu-4,
+.logo-4 {
+  border-right: 1px solid gray;
+}
+.footer .container .col-12 .col-4 a,
+.title-4,
+.time {
+  text-decoration: none;
+  padding-left: 100px;
+  color: #414141;
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .menu-4 {
+  padding-left: 75px;
+}
+.footer .container .col-12 .col-4 .menu {
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .title-4 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+.footer .container .col-12 .col-4 .fas {
+  padding-right: 10px;
+}
+
+</style>
+
+<style>
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.nowrap {
+    flex-wrap: nowrap;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.jusityf-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-left: 15px;
+    padding-right: 15px; */
+}
+
+.container1 {
+   max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-left: 15px;
+    padding-right: 15px; */
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.col-1 {
+    flex-basis: 8.333333%;
+
+
+}
+
+.col-2 {
+    flex-basis: 16.666667%;
+
+}
+
+.col-3 {
+    flex-basis: 25%;
+
+}
+
+.col-4 {
+    flex-basis: 33.333333%;
+
+}
+
+.col-5 {
+    flex-basis: 41.666667%;
+
+}
+
+.col-6 {
+    flex-basis: 50%;
+
+}
+
+.col-7 {
+    flex-basis: 58.333333%;
+
+}
+
+.col-8 {
+    flex-basis: 66.666667%;
+
+}
+
+.col-9 {
+    flex-basis: 75%;
+
+}
+
+.col-10 {
+    flex-basis: 83.333333%;
+
+}
+
+.col-11 {
+    flex-basis: 91.666667%;
+
+}
+
+.col-12 {
+    flex-basis: 100%;
+
+}
+
+</style>

@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:iStat="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>All Green</title>
+    <link
+            rel="shortcut icon"
+            href="http://bizweb.dktcdn.net/100/383/804/themes/848679/assets/favicon.png?1641806330152"
+            type="image/x-icon"
+    />
+    <!-- <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="gird.css" /> -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 flex b-color">
+                <div class="col-4 phone">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+ 1235 2355 98</span>
+                </div>
+                <div class="col-4 email">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>HUYHUNG041000@GMAIL.COM</span>
+                </div>
+                <div class="col-4">
+                    <span>3-5 BUSINESS DAYS DELIVERY & FREE RETURNS</span>
+                </div>
+            </div>
+
+            <div class="col-12 flex fix">
+                <div class="col-5">
+                    <img
+                            style="height: 50px; width: 170px"
+                            src="https://bizweb.dktcdn.net/100/383/804/themes/848679/assets/logo.png?1641806330152"
+                            alt=""
+                    />
+                </div>
+                <div class="col-7 flex">
+                    <div class="col-2">
+                        <li><a th:href="@{/all-green}">Home</a></li>
+                    </div>
+                    <div class="col-2">
+                        <li><a href="#">Contact</a></li>
+                    </div>
+                    <div class="col-2">
+                        <li>
+                            <a th:href="@{/cart}">GIỎ HÀNG<i class="fas fa-shopping-cart"></i></a>
+                        </li>
+                    </div>
+                    <!--                    <div class="col-2">-->
+                    <!--                        <li><a href="@{/user/login-form}">Đăng nhập</a></li>-->
+                    <!--                    </div>-->
+                    <div class="col-2">
+                        <li>
+                            <a th:href="@{/user/log-out}">ĐĂNG XUẤT<i class="fas fa-sign-out-alt"></i></a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<header class="slide">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 overlay">
+                <img
+                        src="https://technext.github.io/vegefoods/images/bg_1.jpg"
+                        alt=""
+                />
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 flex">
+                <div class="col-3">
+                    <i
+                            style="background-color: #e4b2d6"
+                            class="fas fa-shipping-fast"
+                    ></i>
+
+                    <h4>MIỄN PHÍ GIAO HÀNG</h4>
+                    <span class="title">ĐƠN HÀNG TRÊN 1 TRIỆU</span>
+                </div>
+                <div class="col-3">
+                    <i style="background-color: #dcc698" class="fas fa-undo"></i>
+
+                    <h4>HOÀN TRẢ</h4>
+                    <span class="title">TRONG 7 NGÀY MIỄN PHÍ</span>
+                </div>
+                <div class="col-3">
+                    <i style="background-color: #a2d1e1" class="fas fa-award"></i>
+
+                    <h4>CHẤT LƯỢNG CAO</h4>
+                    <span class="title">CHẤT LƯỢNG SẢN PHẨM</span>
+                </div>
+                <div class="col-3">
+                    <i style="background-color: #dcd691" class="fas fa-headset"></i>
+
+                    <h4>HỖ TRỢ</h4>
+                    <span class="title">HỖ TRỢ 24/7</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container1">
+            <div class="row">
+                <div class="col-8 flex">
+                    <div class="col-6">
+                        <div>
+                            <img
+                                    style="margin-bottom: 10px"
+                                    src="https://technext.github.io/vegefoods/images/category-1.jpg"
+                                    alt=""
+                                    width="400"
+                                    height="270"
+                            />
+                        </div>
+                        <div>
+                            <img
+                                    src="https://technext.github.io/vegefoods/images/category-2.jpg"
+                                    alt=""
+                                    width="400"
+                                    height="270"
+                            />
+                        </div>
+                    </div>
+                    <div class="col-6 img-6">
+                        <img
+                                style="padding-right: 10px; padding-left: 10px"
+                                src="https://technext.github.io/vegefoods/images/category.jpg"
+                                alt=""
+                                width="400"
+                                height="550"
+                        />
+                        <h3
+                                style="
+                    color: #82ae46;
+                    padding-top: 50px;
+                    padding-bottom: 15px;
+                  "
+                                class="content"
+                        >
+                            Vegetables
+                        </h3>
+                        <h3 class="content">Protect the health of every home</h3>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div>
+                        <img
+                                style="margin-bottom: 10px"
+                                src="https://technext.github.io/vegefoods/images/category-3.jpg"
+                                alt=""
+                                width="400"
+                                height="270"
+                        />
+                    </div>
+                    <div>
+                        <img
+                                src="https://technext.github.io/vegefoods/images/category-4.jpg"
+                                alt=""
+                                width="400"
+                                height="270"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section1">
+    <div class="container1">
+        <div class="row">
+            <div class="col-12 product-12">
+                <div class="hot-product">Sản phẩm mới</div>
+                <img
+                        width="120"
+                        height="40"
+                        src="https://bizweb.dktcdn.net/100/383/804/themes/848679/assets/bg_title.png?1593421048503"
+                        alt=""
+                />
+                <!-- <span><i style="font-size:70px; color:#82ae46" class="fab fa-pagelines"></i></span> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="container1">
+        <div class="row">
+            <div class="col-12 flex">
+                <div class="col-3 img-3" th:each="product, iStat:${product}">
+                    <img src="/logo/${product.logoPath}" th:src="|/logo/${product.logoPath}|" width="240" height="240"/>
+                    <div class="product-name" th:text="${product.name}"></div>
+                    <span class="product-price"
+                          th:text="${#numbers.formatDecimal(product.price,1,'DEFAULT',0,'DEFAULT')}"></span>
+                    <span style="color:#82ae46; font-size:16px">₫</span>
+                    <form action="">
+                        <button class="view" type="submit">
+                            <a style="text-decoration:none; color:white"
+                               th:href="@{/all-green/detail/{id}(id=${product.id})}">Xem</a>
+                        </button>
+                        <button class="buy" type="submit"><a style="text-decoration:none; color:white"
+                                                             th:href="@{/cart/buy/{id}(id=${product.id})}">Mua</a>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section2">
+    <div class="container1">
+        <div class="row">
+            <div class="col-12 flex banner">
+                <div class="col-6">
+                    <img
+                            width="575"
+                            src="https://bizweb.dktcdn.net/100/383/804/themes/848679/assets/2banner_1.jpg?1641806330152"
+                            alt=""
+                    />
+                </div>
+                <div class="col-6">
+                    <img
+                            width="575"
+                            src="https://bizweb.dktcdn.net/100/383/804/themes/848679/assets/2banner_2.jpg?1641806330152"
+                            alt=""
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section1">
+    <div class="container1">
+        <div class="row">
+            <div class="col-12 title-12">
+                <div>DANH SÁCH SẢN PHẨM</div>
+                <img
+                        width="90"
+                        height="30"
+                        src="https://bizweb.dktcdn.net/100/383/804/themes/848679/assets/bg_title.png?1593421048503"
+                        alt=""
+                />
+            </div>
+
+            <div class="col-12 flex justify-center category-12">
+                <a style="color:green; width:79px; text-decoration: none; font-weight: 600; font-size:20px"
+                   href="/all-green">TẤT CẢ</a>
+                <div class="col-2" th:each="category, iStat:${categoryList}">
+
+                    <li>
+                        <a th:href="@{/all-green/{id}(id=${category.id})}"><span th:text="${category.name}"></span></a>
+                    </li>
+
+                </div>
+            </div>
+
+
+            <div class="col-12 flex">
+                <div class="col-6 select-6">
+                    <label for="">Tăng dần:</label>
+                    <button type="submit" style="border:none;background-color: white;">
+                        <a th:href="@{/all-green/tangdan/}">
+                            <i style="font-size:30px; margin-right: 40px;
+    padding-left: 5px;" class="fas fa-chevron-circle-up"></i>
+                        </a>
+                    </button>
+                    <label for="">Giảm dần:</label>
+                    <button type="submit" style="border:none;background-color: white;">
+                        <a th:href="@{/all-green/giamdan}">
+                            <i style="font-size:30px; margin-right: 40px;
+    padding-left: 5px;" class="fas fa-chevron-circle-down"></i>
+                        </a>
+                    </button>
+                </div>
+                <div class="col-6 search">
+                    <form th:action="@{/all-green}">
+                        <input type="text" placeholder="Tìm kiếm sản phẩm..." name="name"/>
+                        <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="container1">
+                <div class="row">
+                    <div class="col-12 wrap flex list-product">
+                        <div class="col-3" th:each="product, iStat:${products}">
+                            <img src="/logo/${product.logoPath}" th:src="|/logo/${product.logoPath}|" width="230"
+                                 height="240"/>
+                            <div class="product-name" th:text="${product.name}"></div>
+                            <span class="product-price"
+                                  th:text="${#numbers.formatDecimal(product.price,1,'DEFAULT',0,'DEFAULT')}"></span>
+                            <span style="color:#7cc652">vnđ</span>
+                            <form action="">
+                                <button class="view" type="submit">
+                                    <a style="text-decoration:none; color:white"
+                                       th:href="@{/all-green/detail/{id}(id=${product.id})}">Xem</a>
+                                </button>
+                                <button class="buy" type="submit">
+                                    <a style="text-decoration:none; color:white"
+                                       th:href="@{/cart/buy/{id}(id=${product.id})}">Mua</a>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<nav class="nav">
+    <div class="container1">
+        <div class="row">
+            <div class="col-12 flex justify-center">
+                <form action="">
+                    <button type="submit">Xem thêm</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<footer class="footer">
+    <div class="container">
+        <div class="col-12 flex">
+            <div class="col-4 logo-4">
+                <img
+                        src="https://bizweb.dktcdn.net/100/383/804/themes/848679/assets/logo.png?1641806330152"
+                        alt=""
+                />
+                <div class="address">
+                    <i class="fas fa-map-marker-alt"></i>Tầng 6 toà nhà Ladeco, 111
+                    Đội Cấn, Ba Đình, Hà Nội
+                </div>
+                <div class="address"><i class="fas fa-phone-alt"></i>1900 6750</div>
+                <div class="address">
+                    <i class="fas fa-envelope"></i>green@gmail.com
+                </div>
+            </div>
+            <div class="col-4 menu-4">
+                <div class="title-4">MENU</div>
+
+                <div class="menu"><a href="#">Liên hệ</a></div>
+
+                <div class="menu"><a href="#">Giỏ hàng</a></div>
+
+                <div class="menu"><a href="#">Đăng xuất</a></div>
+            </div>
+            <div class="col-4">
+                <div class="title-4">OPENING TIME</div>
+                <div class="time">Mon - Fri: 8AM - 10PM</div>
+                <div class="time">Sat: 9AM-8PM</div>
+                <div class="time">Suns: 14hPM-18hPM</div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
+<style>
+  * {
+  box-sizing: border-box;
+}
+body {
+  background-color: #f3f3f3;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+.header .container {
+  /* position: sticky; */
+  position: relative;
+  top: 0;
+  z-index: 2;
+  background-color: white;
+}
+
+.header .container .row .b-color {
+  background-color: #82ae46;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.header .container .row .col-12 .col-4 {
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+
+.header .container .row .col-12 .fas,
+.fab {
+  padding-right: 8px;
+}
+.header .container .row .col-12 .phone {
+  text-align: center;
+}
+.header .container .row .col-12 .email {
+  padding-left: 70px;
+}
+.header .container .row .col-12 .col-5 {
+  text-align: center;
+  padding: 5px 0 5px 0;
+}
+.header .container .row .col-12 .col-7 {
+  list-style: none;
+}
+.header .container .row .col-12 .col-7 li {
+  padding-top: 21px;
+}
+.header .container .row .col-12 .col-7 .fas {
+  padding-left: 5px;
+  color: #666262;
+  font-size: 12px;
+}
+/* .header .container .row .col-12 .col-7 .fas:hover{
+    color: #91e31e;
+} */
+.header .container .row .col-12 .col-7 a {
+  text-decoration: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000000;
+  -webkit-transition: all 0.4s ease;
+}
+.header .container .row .col-12 .col-7 a:hover {
+  color: #8de710;
+}
+.slide {
+  position: relative;
+  z-index: 1;
+  top: -185px;
+}
+section {
+  position: relative;
+  z-index: 2;
+  top: -210px;
+  background-color: white;
+}
+
+.section .container .row .col-12 .col-3 {
+  text-align: center;
+  background-color: white;
+  margin-bottom: 80px;
+  padding-top: 80px;
+}
+.section .container .row .col-12 .col-3 .fas {
+  width: 70px;
+  height: 70px;
+  border-radius: 40px;
+  padding-top: 16px;
+  font-size: 40px;
+  color: #fffafa;
+  margin-bottom: 13px;
+}
+.section .container .row .col-12 .col-3 h4 {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-style: italic;
+  color: #000000;
+  margin-bottom: 5px;
+}
+.section .container .row .col-12 .col-3 .title {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.5);
+}
+.section .container1 .row .col-8 .img-6 img {
+  position: absolute;
+}
+
+.section .container1 .row .col-8 .img-6 .content {
+  position: relative;
+  text-align: center;
+  font-family: "Lora", Georgia, serif;
+  font-size: 17px;
+  font-style: italic;
+  font-weight: 300;
+}
+.section1 .container1 .row .product-12 {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 50px;
+}
+.section1 .container1 .row .col-12 .hot-product {
+  text-transform: uppercase;
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  padding-top: 90px;
+  padding-bottom: 5px;
+  color: #696262;
+}
+
+.section1 .container1 .row .col-12 .col-3 {
+<!--  border: 1px solid #f0f0f0;-->
+<!--  text-align: center;-->
+  padding-bottom: 25px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.section1 .container1 .row .col-12 .col-3 .product-name {
+  padding-bottom: 11px;
+  color: #7a7373;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.section1 .container1 .row .col-12 .col-3 .product-price {
+  color: #7cc652;
+  font-size: 15px;
+}
+
+.section1 .container1 .row .col-12 .col-3 img {
+  transform-origin: 50% 65%;
+  transition: transform 1s, filter 1s ease-in-out;
+  filter: brightness(105%);
+  padding-bottom: 4px;
+}
+.section1 .container1 .row .col-12 .col-3 img:hover {
+  transform: scale(1.6);
+  filter: brightness(100%);
+}
+.section1 .container1 .row .col-12 .col-3 button {
+  background-color: #53860c7a;
+  border: none;
+  width: 55px;
+  height: 30px;
+  border-radius: 40px;
+  color: #fff;
+  z-index: -1;
+  position: absolute;
+  top: 95px;
+  right: 140px;
+  cursor: pointer;
+}
+.section1 .container1 .row .col-12 .col-3:hover button {
+  z-index: 1;
+}
+.section1 .container1 .row .col-12 .col-3 .view {
+  margin-right: -60px;
+}
+
+.section2 .container1 .row .banner {
+  margin-top: 70px;
+}
+
+.section1 .container1 .row .title-12 {
+  text-align: center;
+  margin-top: 90px;
+  margin-bottom: 40px;
+  font-size: 30px;
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  color: #696262;
+}
+
+.section1 .container1 .row .col-12 li {
+  list-style: none;
+      text-align: center;
+}
+.section1 .container1 .row .col-12 li a {
+  text-decoration: none;
+
+  color: #414141;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 18px;
+  -webkit-transition: all 0.4s ease;
+}
+.section1 .container1 .row .col-12 li a:hover {
+  color: #10c425;
+}
+.section1 .container1 .row .category-12 {
+  margin-bottom: 60px;
+}
+
+.section1 .container1 .row .list-product {
+  margin-bottom: 15px;
+}
+
+.footer {
+  margin-top: 110px;
+  background-color: #f4f4f4;
+}
+.footer .container .col-12 {
+  padding: 70px 0 80px 70px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  color: #414141;
+}
+.footer .container .col-12 .logo-4 .address {
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .logo-4 img {
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .menu-4,
+.logo-4 {
+  border-right: 1px solid gray;
+}
+.footer .container .col-12 .col-4 a,
+.title-4,
+.time {
+  text-decoration: none;
+  padding-left: 100px;
+  color: #414141;
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .menu-4 {
+  padding-left: 75px;
+}
+.footer .container .col-12 .col-4 .menu {
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .title-4 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+.footer .container .col-12 .col-4 .fas {
+  padding-right: 10px;
+}
+
+.nav .container1 .row .col-12 button {
+  padding: 10px 35px;
+  color: #302e2e;
+  background-color: #7cc652;
+  border: 1px solid greenyellow;
+  cursor: pointer;
+}
+.section1 .container1 .row .col-12 .search {
+  margin-bottom: 25px;
+  margin-left: 48px;
+}
+
+.section1 .container1 .row .col-6 input {
+  width: 550px;
+  line-height: 41px;
+  margin-top: -2px;
+  border-radius: 15px;
+  border: 2px solid grey;
+  padding-left: 15px;
+  font-size: 18px;
+  position: relative;
+}
+.section1 .container1 .row .col-6 .btn {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  color: black;
+  position: absolute;
+  right: 210px;
+  top: 284px;
+}
+.section1 .container1 .row .col-6 button .fas {
+  font-size: 23px;
+}
+.section1 .container1 .row .select-6 label {
+  font-size: 21px;
+  color: rgb(74, 71, 71);
+}
+.section1 .container1 .row .select-6 select {
+  font-size: 17px;
+  padding: 2px 18px;
+  border: 2px solid #302e2e;;
+  color: rgb(74, 71, 71);
+  border-radius: 10px;
+}
+.section1 .container1 .row .col-12 .col-6 .btn-loc {
+  padding: 4px 7px;
+  font-size: 16px;
+  color: #414141;
+  margin-left: 10px;
+  border: 1px solid #302e2e;;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.section1 .container1 .row .col-12 .col-6 .btn-loc:hover {
+  background-color: #76a337;
+}
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.nowrap {
+    flex-wrap: nowrap;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.jusityf-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-left: 15px;
+    padding-right: 15px; */
+}
+
+.container1 {
+   max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-left: 15px;
+    padding-right: 15px; */
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.col-1 {
+    flex-basis: 8.333333%;
+
+
+}
+
+.col-2 {
+    flex-basis: 16.666667%;
+
+}
+
+.col-3 {
+    flex-basis: 25%;
+
+}
+
+.col-4 {
+    flex-basis: 33.333333%;
+
+}
+
+.col-5 {
+    flex-basis: 41.666667%;
+
+}
+
+.col-6 {
+    flex-basis: 50%;
+
+}
+
+.col-7 {
+    flex-basis: 58.333333%;
+
+}
+
+.col-8 {
+    flex-basis: 66.666667%;
+
+}
+
+.col-9 {
+    flex-basis: 75%;
+
+}
+
+.col-10 {
+    flex-basis: 83.333333%;
+
+}
+
+.col-11 {
+    flex-basis: 91.666667%;
+
+}
+
+.col-12 {
+    flex-basis: 100%;
+
+}
+
+
+
+
+
+
+
+
+
+
+</style>
+
+

@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Giỏ Hàng</title>
+    <link
+            rel="shortcut icon"
+            href="http://bizweb.dktcdn.net/100/383/804/themes/848679/assets/favicon.png?1641806330152"
+            type="image/x-icon"
+    />
+    <!-- <link rel="stylesheet" href="style01.css" />
+    <link rel="stylesheet" href="gird01.css" /> -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+</head>
+<body>
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 flex b-color">
+                <div class="col-4 phone">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>+ 1235 2355 98</span>
+                </div>
+                <div class="col-4 email">
+                    <i class="fab fa-telegram-plane"></i>
+                    <span>HUYHUNG041000@GMAIL.COM</span>
+                </div>
+                <div class="col-4">
+                    <span>3-5 BUSINESS DAYS DELIVERY & FREE RETURNS</span>
+                </div>
+            </div>
+
+            <div class="col-12 flex fix">
+                <div class="col-5">
+                    <img
+                            style="height: 50px; width: 170px"
+                            src="https://bizweb.dktcdn.net/100/383/804/themes/848679/assets/logo.png?1641806330152"
+                            alt=""
+                    />
+                </div>
+                <div class="col-7 flex">
+                    <div class="col-2">
+                        <li><a th:href="@{/all-green}">Home</a></li>
+                    </div>
+                    <div class="col-2">
+                        <li><a href="#">Contact</a></li>
+                    </div>
+                    <div class="col-2">
+                        <li>
+                            <a th:href="@{/cart}">GIỎ HÀNG<i class="fas fa-shopping-cart"></i></a>
+                        </li>
+                    </div>
+<!--                    <div class="col-2">-->
+<!--                        <li><a href="@{/user/login-form}">Đăng nhập</a></li>-->
+<!--                    </div>-->
+                    <div class="col-2">
+                        <li>
+                            <a th:href="@{/user/log-out}">ĐĂNG XUẤT<i class="fas fa-sign-out-alt"></i></a>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="section">
+    <form method="post" th:action="@{/cart/update}">
+        <div class="container1">
+            <div class="row">
+                <div
+                        class="col-12 flex" style="
+                background-color: white;
+                margin-top: 35px;
+                border-bottom: 2px solid #82ae46;">
+                    <div class="col-8" >
+                        <button type="submit"><a th:href="@{/all-green}">TIẾP TỤC MUA HÀNG</a></button>
+                        <input class="update" style="float: right; margin-right: 18px; color: #ffffff; font-size: 15px; padding-bottom: 28px;" type="submit" value="Cập nhật giá tiền">
+                        </input>
+                        <div class="col-12 flex"
+                                style="border-top: 1px solid rgba(199, 199, 199, 0.19)" th:each="item : ${session.cart}">
+                            <div class="col-3">
+                                <img
+                                        class="img-product"
+                                        th:src="${'/logo/' + item.product.logoPath}"
+                                />
+                            </div>
+                            <div class="col-3">
+                                <div class="name-product" th:text="${item.product.name}"></div>
+
+                                <a
+                                        style="
+                        text-decoration: none;
+                        color: #f44336;
+                        font-size: 13px;" th:href="@{/cart/remove/{id}(id=${item.product.id})}"><i
+                                        style="padding-right: 5px"
+                                        class="far fa-trash-alt"></i>Xoá khỏi giỏ hàng</a>
+                            </div>
+                            <div class="col-3">
+                                <div class="price-product" th:text="${#numbers.formatDecimal(item.product.price * item.quantity,1,'DEFAULT',0,'DEFAULT')}"></div>
+                                <span style="color:#82ae46; font-size:16px"></span>
+                            </div>
+                            <div class="col-3">
+                                <input type="number" th:value="${item.quantity}" name="quantity" style="width: 75px"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4" style="text-align: center; background-color: #ffe4c41f;">
+                        <div class="total">Tổng Tiền</div>
+                        <span>Thanh Toán:</span>
+                        <span class="total-price" th:text="${#numbers.formatDecimal(total,1,'DEFAULT',0,'DEFAULT')}"></span>
+                        <span style="color:#82ae46; font-size:16px">₫</span>
+                        <button
+                                style="display: block; margin-left: 130px; margin-top: 40px"
+                                type="submit"
+                        >
+                            <a th:href="@{/cart/info}">Thanh toán</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 flex" style="text-align: center">
+                    <div class="col-4">
+                        <img
+                                src="https://cdn-crownx.winmart.vn/images/prod/162964655378716287682220181%20(1).png"
+                                alt=""
+                        />
+                        <h3>Sản phẩm an toàn</h3>
+                    </div>
+                    <div class="col-4">
+                        <img
+                                src="https://cdn-crownx.winmart.vn/images/prod/162964658411816287682628462%20(1).png"
+                                alt=""
+                        />
+                        <h3>Chất lượng cam kết</h3>
+                    </div>
+                    <div class="col-4">
+                        <img
+                                src="https://cdn-crownx.winmart.vn/images/prod/162964661464516287682943943%20(1).png"
+                                alt=""
+                        />
+                        <h3>Dịch vụ vượt trội</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="col-12 flex">
+            <div class="col-4 logo-4">
+                <img
+                        src="https://bizweb.dktcdn.net/100/383/804/themes/848679/assets/logo.png?1641806330152"
+                        alt=""
+                />
+                <div class="address">
+                    <i class="fas fa-map-marker-alt"></i>Tầng 6 toà nhà Ladeco, 111
+                    Đội Cấn, Ba Đình, Hà Nội
+                </div>
+                <div class="address"><i class="fas fa-phone-alt"></i>1900 6750</div>
+                <div class="address">
+                    <i class="fas fa-envelope"></i>green@gmail.com
+                </div>
+            </div>
+            <div class="col-4 menu-4">
+                <div class="title-4">MENU</div>
+
+                <div class="menu"><a href="#">Liên hệ</a></div>
+
+                <div class="menu"><a href="#">Giỏ hàng</a></div>
+
+                <div class="menu"><a href="#">Đăng xuất</a></div>
+            </div>
+            <div class="col-4">
+                <div class="title-4">OPENING TIME</div>
+                <div class="time">Mon - Fri: 8AM - 10PM</div>
+                <div class="time">Sat: 9AM-8PM</div>
+                <div class="time">Suns: 14hPM-18hPM</div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
+<style>
+  * {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(247, 247, 247, 1);
+  margin: 0px;
+  padding: 0px;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+.header .container {
+  /* position: sticky; */
+  position: relative;
+  top: 0;
+  z-index: 2;
+  background-color: white;
+}
+
+.header .container .row .b-color {
+  background-color: #82ae46;
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.header .container .row .col-12 .col-4 {
+  line-height: 25px;
+  letter-spacing: 1px;
+}
+
+.header .container .row .col-12 .fas,
+.fab {
+  padding-right: 8px;
+}
+.header .container .row .col-12 .phone {
+  text-align: center;
+}
+.header .container .row .col-12 .email {
+  padding-left: 70px;
+}
+.header .container .row .col-12 .col-5 {
+  text-align: center;
+  padding: 5px 0 5px 0;
+}
+.header .container .row .col-12 .col-7 {
+  list-style: none;
+}
+.header .container .row .col-12 .col-7 li {
+  padding-top: 21px;
+}
+.header .container .row .col-12 .col-7 .fas {
+  padding-left: 5px;
+  color: #666262;
+  font-size: 12px;
+}
+
+.header .container .row .col-12 .col-7 a {
+  text-decoration: none;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #000000;
+  -webkit-transition: all 0.4s ease;
+}
+
+.header .container .row .col-12 .col-7 a:hover {
+  color: #8de710;
+}
+button, .update {
+  background-color: #82ae46;
+  border: none;
+  border-radius: 5px;
+  padding: 11px 20px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+button a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 15px;
+}
+
+.img-product {
+  width: 124px;
+  height: 124px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.price-product {
+  margin-top: 70px;
+  color: #333333;
+  text-align: center;
+  font-weight: 600;
+}
+input {
+  margin-top: 65px;
+  border: 2px solid #333333;
+  border-radius: 5px;
+  height: 25px;
+  text-align: center;
+}
+.name-product {
+  color: #333333;
+  font-weight: 600;
+  font-size: 18px;
+  margin-left: 20px;
+  margin-top: 50px;
+  padding-bottom: 5px;
+}
+.far {
+  margin-left: 20px;
+}
+.footer {
+  margin-top: 110px;
+  background-color: #f4f4f4;
+}
+.total {
+  color: #f44336;
+  font-size: 21px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 20px;
+  padding-bottom: 35px;
+}
+.total-price{
+  color: #414141;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  margin-left: 80px;
+}
+.col-4 img{
+  margin-bottom: 20px;
+  margin-top: 50px;
+}
+.col-4 h3{
+  font-size: 15px;
+  color: #666666;
+}
+.footer{
+  margin-top: 65px;
+}
+.footer .container .col-12 {
+  padding: 70px 0 80px 70px;
+  font-weight: 400;
+  font-family: "Open Sans", sans-serif;
+  font-size: 17px;
+  color: #414141;
+}
+.footer .container .col-12 .logo-4 .address {
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .logo-4 img {
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .menu-4,
+.logo-4 {
+  border-right: 1px solid gray;
+}
+.footer .container .col-12 .col-4 a,
+.title-4,
+.time {
+  text-decoration: none;
+  padding-left: 100px;
+  color: #414141;
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .menu-4 {
+  padding-left: 75px;
+}
+.footer .container .col-12 .col-4 .menu {
+  padding-bottom: 16px;
+}
+.footer .container .col-12 .title-4 {
+  font-size: 18px;
+  font-weight: 600;
+  padding-bottom: 20px;
+}
+.footer .container .col-12 .col-4 .fas {
+  padding-right: 10px;
+}
+
+
+</style>
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+.nowrap {
+    flex-wrap: nowrap;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.jusityf-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-left: 15px;
+    padding-right: 15px; */
+}
+
+.container1 {
+   max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-left: 15px;
+    padding-right: 15px; */
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+}
+
+.col-1 {
+    flex-basis: 8.333333%;
+
+
+}
+
+.col-2 {
+    flex-basis: 16.666667%;
+
+}
+
+.col-3 {
+    flex-basis: 25%;
+
+}
+
+.col-4 {
+    flex-basis: 33.333333%;
+
+}
+
+.col-5 {
+    flex-basis: 41.666667%;
+
+}
+
+.col-6 {
+    flex-basis: 50%;
+
+}
+
+.col-7 {
+    flex-basis: 58.333333%;
+
+}
+
+.col-8 {
+    flex-basis: 66.666667%;
+
+}
+
+.col-9 {
+    flex-basis: 75%;
+
+}
+
+.col-10 {
+    flex-basis: 83.333333%;
+
+}
+
+.col-11 {
+    flex-basis: 91.666667%;
+
+}
+
+.col-12 {
+    flex-basis: 100%;
+
+}
+
+
+</style>
