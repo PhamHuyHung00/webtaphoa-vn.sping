@@ -1,28 +1,30 @@
 package com.example.demo.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.ManyToAny;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "orderdetail")
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderDetail {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "productid", nullable = false)
     private Product product;
 
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "userid", nullable = false)
-//    private User user;
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "OrderID", nullable = false)
+    private Orders orders;
 
     private double price;
     private int quantity;

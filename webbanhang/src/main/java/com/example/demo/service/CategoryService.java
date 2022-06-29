@@ -8,11 +8,11 @@ import java.util.Optional;
 public interface CategoryService {
     List<Category> getAllCategory();
 
-    Category findNameCateById(int id);
+//    Category findNameCateById(int id);
 
     void deleteById(int id);
 
     void createCate(Category category);
 
-    Category findById(int id);
+//    Category findById(int id);
 }

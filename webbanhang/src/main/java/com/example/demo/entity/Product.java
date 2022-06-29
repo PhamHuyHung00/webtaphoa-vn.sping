@@ -20,6 +20,7 @@ public class Product {
     private String logoPath;
     private double price;
     private String detail;
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "product")
     private Collection<OrderDetail> orderDetails;
 

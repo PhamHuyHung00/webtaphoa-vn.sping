@@ -20,10 +20,10 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryRepository.findAll();
     }
 
-    @Override
-    public Category findNameCateById(int id) {
-        return categoryRepository.findById(id).get();
-    }
+//    @Override
+//    public Category findNameCateById(int id) {
+//        return categoryRepository.findById(id).get();
+//    }
 
     @Override
     public void deleteById(int id) {
@@ -35,8 +35,8 @@ public class CategoryServiceImpl implements CategoryService {
         categoryRepository.save(category);
     }
 
-    @Override
-    public Category findById(int id) {
-        return categoryRepository.findById(id).get();
-    }
+//    @Override
+//    public Category findById(int id) {
+//        return categoryRepository.findById(id).get();
+//    }
 }
